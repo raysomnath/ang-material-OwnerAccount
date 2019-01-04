@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Confirm Delete Operation</h1>
+<mat-dialog-content>
+  <p>{{confirmMessage}}</p>
+</mat-dialog-content>
+<div md-dialog-actions>
+  <mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="dialogRef.close(true)">Confirm</button>
+    <button mat-raised-button color="info" (click)="dialogRef.close(false)">Cancel</button>
+  </mat-dialog-actions>
+</div>
