@@ -1,0 +1,35 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Selected Owner Details - To be deleted</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column wrap" fxLayoutGap="40px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Owner's name:</strong></div>
+            <div fxFlex>{{owner?.name}}</div>
+          </div>
+    
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Date of birth:</strong></div>
+            <div fxFlex>{{owner?.dateOfBirth | date}}</div>
+          </div>
+    
+          <div fxLayout="row wrap" fxFlex *ngIf='owner?.accounts.length <= 2; else advancedUser'>
+            <div fxFlex><strong>Type of user:</strong></div>
+            <div fxFlex class="beginner-color">Beginner user.</div>
+          </div>
+          <ng-template #advancedUser>
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Type of user:</strong></div>
+              <div fxFlex class="advanced-color">Advanced user</div>
+            </div>
+          </ng-template>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions align="center">
+        <button type="submit" mat-raised-button color="warn" (click)="deleteOwner()">Delete</button>
+        <button type="button" mat-raised-button color="info" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+
+    </mat-card>
+</section>
